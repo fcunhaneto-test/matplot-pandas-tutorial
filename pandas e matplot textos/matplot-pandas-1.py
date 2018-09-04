@@ -2,7 +2,7 @@ import pandas as pl
 import matplotlib.pyplot as plt
 
 """
-Lendo um arquivo .csv com pandas
+Lendo um arquivo .csv com pandas e criando um pandas data frame
 """
 dataframe = pl.read_csv('/home/francisco/Projects/Pycharm/'
                         'matplot-pandas-tutorial/files/annual-real-gnp-us-1909-to-1970.csv')
@@ -15,6 +15,18 @@ plt.title('PIB EUA Real Anual de 1909 a 1970')
 plt.savefig('annual-real-gnp-us-1909-to-1970.png')
 
 plt.close()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+"""
+Lendo de um arquivo de texto
+"""
+with open('/home/francisco/Projects/Pycharm/matplot-pandas-tutorial/files'
+          '/annual-real-gnp-us-1909-to-1970.txt', 'r') as f:
+    # Usando a expressão regular para o separador indicando que eles são os
+    # espaços em braco
+    df = pd.read_table(f, sep='\s+')
 
 """
 Incluindo annotates
