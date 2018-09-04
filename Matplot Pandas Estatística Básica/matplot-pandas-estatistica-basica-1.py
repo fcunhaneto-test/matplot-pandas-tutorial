@@ -122,5 +122,3 @@ df_mas_fem.mas.plot(kind='bar', color='#2DB200', ax=ax, width=width, position=1,
                     alpha=0.5, label='masculino')
 plt.legend(loc='upper right')
 plt.savefig('peso-ditribuicao-mas-x-fem.png')
-
-
