@@ -12,7 +12,7 @@ plt.plot(dataframe['Year'], dataframe['GNP'])
 plt.xlabel('Year')
 plt.ylabel('GNP')
 plt.title('PIB EUA Real Anual de 1909 a 1970')
-plt.savefig('annual-real-gnp-us-1909-to-1970.png')
+plt.savefig('imagens/annual-real-gnp-us-1909-to-1970.png')
 
 plt.close()
 
@@ -48,7 +48,7 @@ plt.annotate('Fim da Segunda Gerra Mundial', xy=(1945, 355.2), color='red',
 plt.annotate('Crash da Bolsa', xy=(1929, 203.6),
              arrowprops=dict(arrowstyle='->'), xytext=(1909, 200))
 
-plt.savefig('gnp-us-1909-to-1970-annotate.png')
+plt.savefig('imagens/gnp-us-1909-to-1970-annotate.png')
 
 plt.close()
 
@@ -124,6 +124,6 @@ plt.text(1940, 700, 'Pequeno texto de exemplo 3', fontdict=font_3,
          backgroundcolor='#000000', horizontalalignment='center',
          verticalalignment='top')
 
-plt.savefig('gnp-us-1909-to-1970-text.png')
+plt.savefig('imagens/gnp-us-1909-to-1970-text.png')
 
 plt.close()
