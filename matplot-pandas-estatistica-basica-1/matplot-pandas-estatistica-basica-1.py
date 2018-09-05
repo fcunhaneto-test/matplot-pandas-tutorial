@@ -28,13 +28,29 @@ peso_fem = fem['Peso']
 peso_mas = mas['Peso']
 
 plt.figure(figsize=(8, 6))
+
+"""
+sobre a função hist(x, bins=None, color=None, label=None, **kwargs)
+
+x: Valores de entrada, um array único ou uma sequência de arrays
+
+bins: Inteiro ou sequência ou 'auto', opcional
+
+labels: String ou sequência de strings para corresponder a vários conjuntos de dados
+
+color: Especificação de cores ou sequência de especificações de cores
+
+Mais em:
+https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html
+"""
+plt.hist(peso_fem, bins=range(40, 110,10),
+         label='feminino', color='#FF26E1', alpha=0.5)
+plt.hist(peso_mas, bins=range(40, 110,10),
+         label='masculino', color='#2DB200', alpha=0.5)
+
 plt.title('Distribuição de Pesos')
 plt.xlabel('Peso')
 plt.ylabel('Alunos')
-plt.hist(peso_fem, bins=range(40, 110,10),
-         alpha=0.5, label='feminino', color='#FF26E1')
-plt.hist(peso_mas, bins=range(40, 110,10),
-         alpha=0.5, label='masculino', color='#2DB200')
 plt.legend(loc='upper right')
 plt.savefig('imagens/peso-histograma-mas-x-fem.png')
 plt.close()
@@ -50,7 +66,19 @@ x = idade_sum.index
 y = idade_sum
 
 plt.figure(figsize=(8, 6))
+
+"""
+sobre a função bar(*args, **kwargs)
+Parameters:
+
+x:  As coordenadas x das barras
+y:  A altura (s) das barras
+
+Mais em:
+https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html
+"""
 plt.bar(x, y)
+
 plt.title('Distribuição de Idades')
 plt.xlabel('Idade')
 plt.ylabel('Alunos')

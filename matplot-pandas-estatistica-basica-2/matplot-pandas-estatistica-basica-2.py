@@ -1,10 +1,8 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from pandasUteis.pandas_utils import frequency_by_natural_order, frequency_by_buckets
 
-df = pd.read_csv('/home/francisco/Projects/Pycharm/'
-                        'matplot-pandas-tutorial/files/questionario.csv')
+df = pd.read_csv('/home/francisco/Projects/Pycharm/matplot-pandas-tutorial/'
+                 'files/questionario.csv')
 
 """
 Criando um boxplot para a coluna alturas
@@ -33,7 +31,7 @@ plt.ylabel('Altura')
 plt.text(1, q1, s_q1, fontdict=font_1)
 plt.text(1, mediana, s_mediana, fontdict=font_1)
 plt.text(1, q2, s_q2, fontdict=font_1)
-plt.savefig('alturas-boxplot.png')
+plt.savefig('imagens/alturas-boxplot.png')
 plt.close()
 
 """
@@ -88,9 +86,43 @@ plt.text(2.1, alt_fd['max'], '{0:.2f}'.format(alt_fd['max']),
 
 plt.text(2.8, 1.45, 'G - Geral\nF - Feminino\nM - Masculino',
          horizontalalignment='left', fontdict=font_1)
-plt.savefig('alturas-geral-fem-masc-boxplot.png')
+plt.savefig('imagens/alturas-geral-fem-masc-boxplot.png')
 plt.close()
 
 """
-Usando a coluna OpTV
+Criando um Diagrama de Pizza para a coluna OpTV(Opnião sobre a programação de TV)
 """
+optv = df['OpTV']
+optv_sum = optv.value_counts()
+
+total = df['OpTV'].count()
+optv_freq = (optv_sum / total) * 100
+
+plt.figure(figsize=(6,6))
+labels = ['Ruim', 'Média', 'Boa', 'Não Sabe']
+colors = ['#A43820', '#FFF8C6', '#99C68E', '#4DBCD3']
+explode = (.1, 0, .1, 0) # Separa uma das fatias de acordo com indice e o
+# valor dado(.1)
+
+"""
+Sobre o gráfico de pizza:
+
+x: The wedge sizes.
+
+autopct: Se não for Nenhum, é uma string ou função usado para rotular as
+ cunhas com seu valor numérico.
+
+colors: Uma sequência de args de matplotlib por meio da qual o gráfico de
+ pizza será alternado.
+
+explode: Se não for None, é uma matriz len(x) que especifica a fração do raio
+ com a qual deslocar cada cunha.
+
+shadow: Se True desenhe uma sombra sob o gráfico.
+
+Mais em: https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html
+"""
+plt.pie(optv_freq, labels=labels ,  autopct='%1.1f%%', colors=colors,
+        shadow=True, explode=explode)
+plt.savefig('imagens/opniao-tv-diagrama-pizza.png')
+plt.close()
